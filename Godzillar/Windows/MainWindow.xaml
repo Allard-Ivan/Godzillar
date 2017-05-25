@@ -1,0 +1,35 @@
+﻿<Window x:Class="Godzillar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Godzillar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1280" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="文件(F)">
+                <MenuItem Header="新建(C)">
+                    <MenuItem Header="表单(F)..." Name="CreateForm"/>
+                </MenuItem>
+                <MenuItem Header="隐藏(Y)">
+                    <MenuItem Header="内部配置(I)..." Name="InnerPrivacy"/>
+                    <MenuItem Header="外部配置(O)..." Name="OutPrivacy"/>
+                    <MenuItem Header="更新数据(U)..." Name="UpdatePrivacy"/>
+                </MenuItem>
+                <MenuItem Header="退出(X)" Name="Exit" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="编辑(E)">
+                <MenuItem Header="协同者(S)..."/>
+            </MenuItem>
+            <MenuItem Header="帮助(H)"/>
+        </Menu>
+        <Menu Grid.Row="1" Background="#FFE8E8E5" Name="FormItem">
+        </Menu>
+    </Grid>
+</Window>

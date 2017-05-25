@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar", "Godzillar\Godzillar.csproj", "{80604270-C04C-46F9-A6EC-5EACA3079768}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.Utils", "Godzillar.Utils\Godzillar.Utils.csproj", "{3D1129BD-9CFC-4904-A741-C79864C1FAE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.DAO", "Godzillar.DAO\Godzillar.DAO.csproj", "{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.Service", "Godzillar.Service\Godzillar.Service.csproj", "{ABDB7970-053B-4597-BA74-E794F759D584}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{80604270-C04C-46F9-A6EC-5EACA3079768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80604270-C04C-46F9-A6EC-5EACA3079768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80604270-C04C-46F9-A6EC-5EACA3079768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1129BD-9CFC-4904-A741-C79864C1FAE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1129BD-9CFC-4904-A741-C79864C1FAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1129BD-9CFC-4904-A741-C79864C1FAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1129BD-9CFC-4904-A741-C79864C1FAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABDB7970-053B-4597-BA74-E794F759D584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABDB7970-053B-4597-BA74-E794F759D584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABDB7970-053B-4597-BA74-E794F759D584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABDB7970-053B-4597-BA74-E794F759D584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
