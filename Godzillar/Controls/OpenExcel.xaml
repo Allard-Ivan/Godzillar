@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Godzillar.Excel.OpenExcel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Godzillar.Excel"
+             mc:Ignorable="d" 
+             d:DesignHeight="10800" d:DesignWidth="1920" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0">
+            <Button Name="ClearFormat" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Clear.png"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <ComboBox Name="None" Margin="4,0" Width="35">
+
+            </ComboBox>
+            <Button Name="FontBold" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Bold.png"/>
+            </Button>
+            <Button Name="FontItalic" Margin="4,0">
+                <Image Stretch="None"  Source="../Resources/Images/Italic.png"/>
+            </Button>
+            <Button Name="FontUnderline" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Underline.png"/>
+            </Button>
+            <Button Name="FontHorizontalLine" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/HorizontalLine.png"/>
+            </Button>
+            <Button Name="FontColor" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/FontColor.png"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="BackgroundColor" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/BackgroundColor.png"/>
+            </Button>
+            <Button Name="MergeCell" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Merge.png"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="CellHorizontalAlignment" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/HorizontalAlignment.png"/>
+            </Button>
+            <Button Name="CellVerticalAlignment" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/VerticalAlignment.png"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="Freeze" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Freeze.png"/>
+            </Button>
+            <Button Name="CellSort" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Sort.png"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="FindReplace" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/FindReplace.png"/>
+            </Button>
+        </ToolBar>
+        <Grid Grid.Row="1" Name="MainGrid"/>
+    </Grid>
+</UserControl>

@@ -1,4 +1,5 @@
 ﻿using Godzillar.DAO.eyt_xt_order;
+using Godzillar.Excel;
 using Godzillar.Utils;
 using Godzillar.Windows;
 using System;
@@ -39,6 +40,7 @@ namespace Godzillar
 
         private void FormToolBar_Loading()
         {
+            FormItem.Items.Clear();
             DataTable dtblFormItem = null;
             string menuItemTemp = "";
             MenuItem menuItem = null, menuItemChild = null;
@@ -62,6 +64,7 @@ namespace Godzillar
                 }
                 menuItemChild = new MenuItem();
                 menuItemChild.Header = Convert.ToString(row[1]);
+                menuItemChild.Tag = Convert.ToString(row[2]);
                 menuItemChild.Click += MenuItemChild_Click;
                 menuItem.Items.Add(menuItemChild);
             }
@@ -69,7 +72,10 @@ namespace Godzillar
 
         private void MenuItemChild_Click(object sender, RoutedEventArgs e)
         {
-            
+            InitExcel.Children.Clear();
+            Constants.FormId = (sender as MenuItem).Tag.ToString();
+            OpenExcel openExcel = new OpenExcel();
+            InitExcel.Children.Add(openExcel);
         }
 
         #region Any shutdown

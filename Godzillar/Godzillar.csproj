@@ -37,9 +37,37 @@
   <PropertyGroup>
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxFlexCell">
+      <HintPath>..\packages\lib\AxFlexCell.dll</HintPath>
+    </Reference>
+    <Reference Include="FlexCell">
+      <HintPath>..\packages\lib\FlexCell.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,13 +80,14 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Excel\Excel.xaml">
+    <Page Include="Controls\OpenExcel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,8 +103,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Excel\Excel.xaml.cs">
-      <DependentUpon>Excel.xaml</DependentUpon>
+    <Compile Include="Controls\OpenExcel.xaml.cs">
+      <DependentUpon>OpenExcel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -130,6 +159,24 @@
       <Project>{3D1129BD-9CFC-4904-A741-C79864C1FAE0}</Project>
       <Name>Godzillar.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BackgroundColor.png" />
+    <Resource Include="Resources\Images\Bold.png" />
+    <Resource Include="Resources\Images\Clear.png" />
+    <Resource Include="Resources\Images\FindReplace.png" />
+    <Resource Include="Resources\Images\FontColor.png" />
+    <Resource Include="Resources\Images\freeze.png" />
+    <Resource Include="Resources\Images\HorizontalAlignment.png" />
+    <Resource Include="Resources\Images\HorizontalLine.png" />
+    <Resource Include="Resources\Images\Merge.png" />
+    <Resource Include="Resources\Images\OutBorder.png" />
+    <Resource Include="Resources\Images\Sort.png" />
+    <Resource Include="Resources\Images\Underline.png" />
+    <Resource Include="Resources\Images\VerticalAlignment.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

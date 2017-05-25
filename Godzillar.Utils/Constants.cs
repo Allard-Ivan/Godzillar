@@ -25,5 +25,7 @@ namespace Godzillar.Utils
 
 
         public static string Email { get; set; }
+
+        public static string FormId { get; set; }
     }
 }

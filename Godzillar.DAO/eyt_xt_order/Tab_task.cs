@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Godzillar.DAO.eyt_xt_order
 {
-    public class Tab_windows_version
+    public class Tab_task
     {
-        public DataTable SelectFormItem_Admin()
+        public DataTable SelectOrderTaskByFormId()
         {
-            string sql = "SELECT class_cn, cn, formid FROM tab_windows_version WHERE eyt LIKE '%" + Constants.Email + "%' order by class_cn";
+            string sql = "SELECT taskid, orderid, createtime FROM tab_task WHERE formid = " + Constants.FormId + " order by id";
             return DB.OrderDB.ExecuteDataTable(sql);
         }
     }
