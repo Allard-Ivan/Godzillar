@@ -31,6 +31,6 @@
         </Menu>
         <Menu Grid.Row="1" Background="#FFE8E8E5" Name="FormItem">
         </Menu>
-        <StackPanel Grid.Row="2" Name="InitExcel"></StackPanel>
+        <Grid Grid.Row="2" Name="InitExcel"></Grid>
     </Grid>
 </Window>

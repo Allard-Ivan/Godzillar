@@ -8,6 +8,6 @@ namespace Godzillar.Service
     {
         void SetAdapter_Title(AxGrid axGrid, DataTable dtbl);
 
-        void SetAdapter_Value(AxGrid axGrid, List<DataTable> dtblList);
+        void SetAdapter_Value(AxGrid axGrid, DataTable dtbl);
     }
 }

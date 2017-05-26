@@ -38,7 +38,7 @@ namespace Godzillar.Excel
             axGrid.Rows = 201;
             axGrid.Cols = 51;
             axGrid.DisplayRowIndex = true;
-            excelService.Excel_Loading(axGrid);
+            excelService.Excel_Loading(axGrid);           
         }
 
         /// <summary>
@@ -53,5 +53,6 @@ namespace Godzillar.Excel
             host.Child = axGrid;
             grid.Children.Add(host);
         }
+
     }
 }
