@@ -158,5 +158,8 @@
     <Resource Include="Resources\Images\Underline.png" />
     <Resource Include="Resources\Images\VerticalAlignment.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CreateOrder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,51 +13,54 @@
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0">
             <Button Name="ClearFormat" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Clear.png"/>
+                <Image Stretch="None" Source="../Resources/Images/Clear.png" ToolTip="清除格式"/>
             </Button>
             <Separator Margin="4,0"/>
             <ComboBox Name="None" Margin="4,0" Width="35">
 
             </ComboBox>
             <Button Name="FontBold" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Bold.png"/>
+                <Image Stretch="None" Source="../Resources/Images/Bold.png" ToolTip="粗体"/>
             </Button>
             <Button Name="FontItalic" Margin="4,0">
-                <Image Stretch="None"  Source="../Resources/Images/Italic.png"/>
+                <Image Stretch="None"  Source="../Resources/Images/Italic.png" ToolTip="斜体"/>
             </Button>
             <Button Name="FontUnderline" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Underline.png"/>
+                <Image Stretch="None" Source="../Resources/Images/Underline.png" ToolTip="下划线"/>
             </Button>
             <Button Name="FontHorizontalLine" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/HorizontalLine.png"/>
+                <Image Stretch="None" Source="../Resources/Images/HorizontalLine.png" ToolTip="中划线"/>
             </Button>
             <Button Name="FontColor" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/FontColor.png"/>
+                <Image Stretch="None" Source="../Resources/Images/FontColor.png" ToolTip="文字颜色"/>
             </Button>
             <Separator Margin="4,0"/>
             <Button Name="BackgroundColor" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/BackgroundColor.png"/>
+                <Image Stretch="None" Source="../Resources/Images/BackgroundColor.png" ToolTip="背景颜色"/>
             </Button>
             <Button Name="MergeCell" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Merge.png"/>
+                <Image Stretch="None" Source="../Resources/Images/Merge.png" ToolTip="合并单元格"/>
             </Button>
             <Separator Margin="4,0"/>
             <Button Name="CellHorizontalAlignment" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/HorizontalAlignment.png"/>
+                <Image Stretch="None" Source="../Resources/Images/HorizontalAlignment.png" ToolTip="水平对齐"/>
             </Button>
             <Button Name="CellVerticalAlignment" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/VerticalAlignment.png"/>
+                <Image Stretch="None" Source="../Resources/Images/VerticalAlignment.png" ToolTip="垂直对齐"/>
             </Button>
             <Separator Margin="4,0"/>
             <Button Name="Freeze" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Freeze.png"/>
+                <Image Stretch="None" Source="../Resources/Images/Freeze.png" ToolTip="冻结"/>
             </Button>
             <Button Name="CellSort" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Sort.png"/>
+                <Image Stretch="None" Source="../Resources/Images/Sort.png" ToolTip="排序"/>
             </Button>
             <Separator Margin="4,0"/>
             <Button Name="FindReplace" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/FindReplace.png"/>
+                <Image Stretch="None" Source="../Resources/Images/FindReplace.png" ToolTip="查找与替换"/>
+            </Button>
+            <Button Name="CreateOrder" Margin="4,0" Click="CreateOrder_Click">
+                <Image Stretch="None" Source="../Resources/Images/CreateOrder.png" ToolTip="创建订单"/>
             </Button>
         </ToolBar>
         <Grid Grid.Row="1" Name="MainGrid"/>

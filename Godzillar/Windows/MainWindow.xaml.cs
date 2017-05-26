@@ -30,6 +30,7 @@ namespace Godzillar
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "运易达协同桌面系统";
         }
 
 
@@ -73,7 +74,10 @@ namespace Godzillar
         private void MenuItemChild_Click(object sender, RoutedEventArgs e)
         {
             InitExcel.Children.Clear();
-            Constants.FormId = (sender as MenuItem).Tag.ToString();
+            MenuItem menuItem = sender as MenuItem;
+            Constants.FormId = menuItem.Tag.ToString();
+            Constants.ExcelName = (menuItem.Parent as MenuItem).Header.ToString() + "_" + menuItem.Header.ToString();
+            this.Title = "运易达协同桌面系统 - " + Constants.ExcelName;
             OpenExcel openExcel = new OpenExcel();
             InitExcel.Children.Add(openExcel);
         }

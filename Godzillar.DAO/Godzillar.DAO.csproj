@@ -41,9 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="eyt_erp\Tab_order_cost.cs" />
+    <Compile Include="eyt_erp\Tab_order_cost_in.cs" />
     <Compile Include="eyt_user\Tab_user_xt.cs" />
+    <Compile Include="eyt_xt_order\Tab_dic_transport_type.cs" />
     <Compile Include="eyt_xt_order\Tab_form_item.cs" />
+    <Compile Include="eyt_xt_order\Tab_order.cs" />
     <Compile Include="eyt_xt_order\Tab_task.cs" />
+    <Compile Include="eyt_xt_order\Tab_task_confirm.cs" />
     <Compile Include="eyt_xt_order\Tab_task_form_value.cs" />
     <Compile Include="eyt_xt_order\Tab_windows_version.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,8 +59,6 @@
       <Name>Godzillar.Utils</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="eyt_erp\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

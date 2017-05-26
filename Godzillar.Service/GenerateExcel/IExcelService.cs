@@ -11,5 +11,9 @@ namespace Godzillar.Service.GenerateExcel
     public interface IExcelService
     {
         void Excel_Loading(AxGrid axGrid);
+
+        void TimelySave();
+
+        string CreateOrder(AxGrid axGrid);
     }
 }

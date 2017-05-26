@@ -12,7 +12,7 @@ namespace Godzillar.DAO.eyt_xt_order
     {
         public DataTable SelectExcelDataByFormId()
         {
-            string sql = @"SELECT t.taskid, t.orderid, t.createtime, tfi.item_cn, tfv.formitemvalue, tfv.forecolor, tfv.backcolor
+            string sql = @"SELECT t.taskid, t.orderid, t.createtime, tfi.item_cn, tfv.formitemvalue
                             FROM tab_task_form_value tfv 
                             INNER JOIN tab_form_item tfi ON tfv.formitemid = tfi.id 
                             INNER JOIN tab_task t ON tfv.taskid = t.taskid
@@ -22,6 +22,12 @@ namespace Godzillar.DAO.eyt_xt_order
 
         public int UpdateExcelData(string sql)
         {
+            return DB.OrderDB.ExecuteNonQuery(sql);
+        }
+
+        public int InsertExcelValue(string taskId, string formItemId, string formItemValue)
+        {
+            string sql = "INSERT tab_task_form_value(taskid, formid, formitemid, formitemvalue) VALUES(" + taskId + ", " + Constants.FormId + ", " + formItemId + ", '" + formItemValue + "')";
             return DB.OrderDB.ExecuteNonQuery(sql);
         }
 

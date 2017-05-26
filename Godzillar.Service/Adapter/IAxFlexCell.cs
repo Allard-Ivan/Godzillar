@@ -13,13 +13,12 @@ namespace Godzillar.Service.Adapter
     public class IAxFlexCell : IAdapter
     {
         private List<string> taskList = new List<string>();
-        private List<string> itemList = new List<string>();
-        private int excelRows = 1;
-        private int excelCols = 1;
+        
         private Tab_task_form_value task_form_value = new Tab_task_form_value();
 
         public void SetAdapter_Title(AxGrid axGrid, DataTable dtbl)
         {
+            Constants.ItemList.Clear();
             axGrid.Column(1).Width = 100;
             axGrid.Column(2).Width = 170;
             axGrid.Cell(0, 1).Text = "订单 ID";
@@ -28,17 +27,35 @@ namespace Godzillar.Service.Adapter
             {
                 axGrid.Column(i + 3).Width = Convert.ToInt32(dtbl.Rows[i][2]);
                 axGrid.Cell(0, i + 3).Text = Convert.ToString(dtbl.Rows[i][1]);
-                itemList.Add(Convert.ToString(dtbl.Rows[i][1]));
+                Constants.ItemList.Add(Convert.ToString(dtbl.Rows[i][0]));
             }
-            excelCols = itemList.Count;
+            Constants.ExcelCols = Constants.ItemList.Count + 3;
         }
 
         public void SetAdapter_Value(AxGrid axGrid, DataTable dtbl)
         {
-            if (dtbl.Rows.Count == 0)
+            taskList.Clear();
+            int count = dtbl.Rows.Count;
+            if (count == 0)
                 return;
+            else if (count > 3000)
+                axGrid.Rows = 251;
+            else if (count > 4000)
+                axGrid.Rows = 301;
+            else if (count > 5000)
+                axGrid.Rows = 351;
+            else if (count > 6000)
+                axGrid.Rows = 401;
+            else if (count > 7000)
+                axGrid.Rows = 451;
+            else if (count > 8000)
+                axGrid.Rows = 501;
+            else if (count > 10000)
+                axGrid.Rows = 701;
+            else if (count > 15000)
+                axGrid.Rows = 1000;
 
-            string taskId = "", foreColor = "", backColor = "";
+            string taskId = "";
             int initCol = 3, initRow = 0;
 
             foreach (DataRow row in dtbl.Rows)
@@ -49,22 +66,13 @@ namespace Godzillar.Service.Adapter
                     taskId = Convert.ToString(row[0]);
                     axGrid.Cell(initRow, 1).Text = Convert.ToString(row[1]);
                     axGrid.Cell(initRow, 2).Text = Convert.ToString(row[2]);
-                    axGrid.Cell(initRow, 1).Locked = true;
-                    axGrid.Cell(initRow, 2).Locked = true;
                     initCol = 3;
                     taskList.Add(taskId);
                 }
                 axGrid.Cell(initRow, initCol).Text = Convert.ToString(row[4]);
-
-                foreColor = Convert.ToString(row["forecolor"]);
-                backColor = Convert.ToString(row["backcolor"]);
-                if (!foreColor.Equals(""))
-                    axGrid.Cell(initRow, initCol).ForeColor = Convert.ToUInt32(foreColor);
-                if (!backColor.Equals(""))
-                    axGrid.Cell(initRow, initCol).BackColor = Convert.ToUInt32(backColor);
                 ++initCol;
             }
-            excelRows = taskList.Count;
+            Constants.ExcelRows = taskList.Count + 1;
             axGrid.CellChange += AxGrid_CellChange;
         }
 
@@ -72,14 +80,14 @@ namespace Godzillar.Service.Adapter
         {
             AxGrid axGrid = (AxGrid)sender;
             int currentRow = e.row, currentCol = e.col;
-            if (currentCol < 3 || currentRow >= excelRows || currentCol >= excelCols)
+            if (currentCol < 3 || currentRow >= Constants.ExcelRows || currentCol >= Constants.ExcelCols)
                 return;
 
             string coordinate = (currentRow.ToString() + currentCol.ToString());
             string taskId = Convert.ToString(taskList[currentRow - 1]);
-            string itemId = Convert.ToString(itemList[currentCol - 3]);
+            string itemId = Convert.ToString(Constants.ItemList[currentCol - 3]);
             string itemValue = axGrid.Cell(currentRow, currentCol).Text;
-            string sql = "UPDATE tab_task_form_value SET formitemvalue = '" + itemValue + "', foreColor=" + axGrid.Cell(currentRow, currentCol).ForeColor + ",backcolor=" + axGrid.Cell(currentRow, currentCol).BackColor + " WHERE formid = " + Constants.FormId + " AND taskid = '" + taskId + "' AND formitemid = '" + itemId + "'";
+            string sql = "UPDATE tab_task_form_value SET formitemvalue = '" + itemValue + "' WHERE formid = " + Constants.FormId + " AND taskid = '" + taskId + "' AND formitemid = '" + itemId + "'";
             if (Constants.SqlDictionary.ContainsKey(coordinate))
             {
                 Constants.SqlDictionary[coordinate] = sql;
@@ -88,16 +96,6 @@ namespace Godzillar.Service.Adapter
             {
                 Constants.SqlDictionary.Add(coordinate, sql);
             }
-        }
-
-        public void TimelySave()
-        {
-            foreach (KeyValuePair<string, string> entry in Constants.SqlDictionary)
-            {
-                task_form_value.UpdateExcelData(entry.Value);
-
-            }
-            Constants.SqlDictionary.Clear();
         }
 
     }

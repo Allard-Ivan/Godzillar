@@ -29,5 +29,22 @@ namespace Godzillar.Utils
         public static string FormId { get; set; }
 
         public static Dictionary<string, string> SqlDictionary = new Dictionary<string, string>();
+
+        public static int ExcelRows { get; set; }
+
+        public static int ExcelCols { get; set; }
+
+        public static string ExcelName { get; set; }
+
+        public static List<string> ItemList = new List<string>();
+
+        public static string GetTimeStamp()
+        {
+            TimeSpan timeSpan = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(timeSpan.TotalSeconds).ToString();
+        }
+
+        
+
     }
 }

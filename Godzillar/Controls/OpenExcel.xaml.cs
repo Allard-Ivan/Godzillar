@@ -1,4 +1,5 @@
 ﻿using Godzillar.DAO.eyt_xt_order;
+using Godzillar.Service;
 using Godzillar.Service.GenerateExcel;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using AxGrid = AxFlexCell.AxGrid;
 
 namespace Godzillar.Excel
@@ -23,29 +25,34 @@ namespace Godzillar.Excel
     /// </summary>
     public partial class OpenExcel : UserControl
     {
-        private readonly string formId;
         private AxGrid axGrid = new AxGrid();
         private IExcelService excelService = new ExcelService();
+        private DispatcherTimer dispatcherTime;
 
         public OpenExcel()
         {
             InitializeComponent();
+            dispatcherTime = new DispatcherTimer();
+            dispatcherTime.Interval = new TimeSpan(0, 0, 3);
+            dispatcherTime.Tick += DispatcherTime_Tick;
             InsteadOfAxGrid(MainGrid, axGrid);
+        }
+
+        private void DispatcherTime_Tick(object sender, EventArgs e)
+        {
+            excelService.TimelySave();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            axGrid.Rows = 201;
+            axGrid.Rows = 181;
             axGrid.Cols = 51;
             axGrid.DisplayRowIndex = true;
-            excelService.Excel_Loading(axGrid);           
+            excelService.Excel_Loading(axGrid);
+            dispatcherTime.Start();
         }
 
-        /// <summary>
-        /// 用 AxGrid 托管 Grid
-        /// </summary>
-        /// <param name="grid"></param>
-        /// <param name="axGrid"></param>
+        #region AxGrid 托管 Grid
         private void InsteadOfAxGrid(Grid grid, AxGrid axGrid)
         {
             // 固定程序，不用管           
@@ -53,6 +60,15 @@ namespace Godzillar.Excel
             host.Child = axGrid;
             grid.Children.Add(host);
         }
+        #endregion
 
+        private void CreateOrder_Click(object sender, RoutedEventArgs e)
+        {
+            string result = excelService.CreateOrder(axGrid);
+            if (result == "success")
+                MessageBox.Show("创建成功", "你真棒");
+            else
+                MessageBox.Show(result, "要努力哦");
+        }
     }
 }
