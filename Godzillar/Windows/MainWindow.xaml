@@ -31,6 +31,10 @@
         </Menu>
         <Menu Grid.Row="1" Background="#FFE8E8E5" Name="FormItem">
         </Menu>
-        <Grid Grid.Row="2" Name="InitExcel"></Grid>
+        <Grid Grid.Row="2" Name="InitExcel">
+            <Grid.Background>
+                <ImageBrush ImageSource="../Resources/Images/wallpaper.jpg"/>
+            </Grid.Background>
+        </Grid>
     </Grid>
 </Window>

@@ -56,11 +56,14 @@
                 <Image Stretch="None" Source="../Resources/Images/Sort.png" ToolTip="排序"/>
             </Button>
             <Separator Margin="4,0"/>
+            <Button Name="CreateOrder" Margin="4,0" Click="CreateOrder_Click">
+                <Image Stretch="None" Source="../Resources/Images/CreateOrder.png" ToolTip="创建订单"/>
+            </Button>
             <Button Name="FindReplace" Margin="4,0">
                 <Image Stretch="None" Source="../Resources/Images/FindReplace.png" ToolTip="查找与替换"/>
             </Button>
-            <Button Name="CreateOrder" Margin="4,0" Click="CreateOrder_Click">
-                <Image Stretch="None" Source="../Resources/Images/CreateOrder.png" ToolTip="创建订单"/>
+            <Button Name="ExcelClose" Margin="4,0" Click="ExcelClose_Click">
+                <Image Stretch="None" Source="../Resources/Images/Close.png" ToolTip="关闭"/>
             </Button>
         </ToolBar>
         <Grid Grid.Row="1" Name="MainGrid"/>

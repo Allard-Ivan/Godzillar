@@ -70,5 +70,10 @@ namespace Godzillar.Excel
             else
                 MessageBox.Show(result, "要努力哦");
         }
+
+        private void ExcelClose_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as Grid).Children.Clear();
+        }
     }
 }
