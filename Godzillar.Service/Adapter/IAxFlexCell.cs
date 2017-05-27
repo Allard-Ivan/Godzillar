@@ -12,12 +12,11 @@ namespace Godzillar.Service.Adapter
 {
     public class IAxFlexCell : IAdapter
     {
-        private List<string> taskList = new List<string>();
-        
         private Tab_task_form_value task_form_value = new Tab_task_form_value();
 
         public void SetAdapter_Title(AxGrid axGrid, DataTable dtbl)
         {
+            axGrid.CellChange -= AxGrid_CellChange;
             Constants.ItemList.Clear();
             axGrid.Column(1).Width = 100;
             axGrid.Column(2).Width = 170;
@@ -34,7 +33,7 @@ namespace Godzillar.Service.Adapter
 
         public void SetAdapter_Value(AxGrid axGrid, DataTable dtbl)
         {
-            taskList.Clear();
+            Constants.TaskList.Clear();
             int count = dtbl.Rows.Count;
             if (count == 0)
                 return;
@@ -67,26 +66,26 @@ namespace Godzillar.Service.Adapter
                     axGrid.Cell(initRow, 1).Text = Convert.ToString(row[1]);
                     axGrid.Cell(initRow, 2).Text = Convert.ToString(row[2]);
                     initCol = 3;
-                    taskList.Add(taskId);
+                    Constants.TaskList.Add(taskId);
                 }
                 axGrid.Cell(initRow, initCol).Text = Convert.ToString(row[4]);
                 ++initCol;
             }
-            Constants.ExcelRows = taskList.Count + 1;
+            Constants.ExcelRows = Constants.TaskList.Count + 1;
+
             axGrid.CellChange += AxGrid_CellChange;
         }
 
         private void AxGrid_CellChange(object sender, __Grid_CellChangeEvent e)
         {
-            AxGrid axGrid = (AxGrid)sender;
             int currentRow = e.row, currentCol = e.col;
             if (currentCol < 3 || currentRow >= Constants.ExcelRows || currentCol >= Constants.ExcelCols)
                 return;
 
-            string coordinate = (currentRow.ToString() + currentCol.ToString());
-            string taskId = Convert.ToString(taskList[currentRow - 1]);
+            string coordinate = (currentRow.ToString() + "," + currentCol.ToString());
+            string taskId = Convert.ToString(Constants.TaskList[currentRow - 1]);
             string itemId = Convert.ToString(Constants.ItemList[currentCol - 3]);
-            string itemValue = axGrid.Cell(currentRow, currentCol).Text;
+            string itemValue = (sender as AxGrid).Cell(currentRow, currentCol).Text;
             string sql = "UPDATE tab_task_form_value SET formitemvalue = '" + itemValue + "' WHERE formid = " + Constants.FormId + " AND taskid = '" + taskId + "' AND formitemid = '" + itemId + "'";
             if (Constants.SqlDictionary.ContainsKey(coordinate))
             {
@@ -97,6 +96,5 @@ namespace Godzillar.Service.Adapter
                 Constants.SqlDictionary.Add(coordinate, sql);
             }
         }
-
     }
 }

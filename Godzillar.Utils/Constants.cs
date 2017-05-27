@@ -38,6 +38,8 @@ namespace Godzillar.Utils
 
         public static List<string> ItemList = new List<string>();
 
+        public static List<string> TaskList = new List<string>();
+
         public static string GetTimeStamp()
         {
             TimeSpan timeSpan = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);

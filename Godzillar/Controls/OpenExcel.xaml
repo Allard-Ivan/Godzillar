@@ -12,8 +12,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0">
-            <Button Name="ClearFormat" Margin="4,0">
-                <Image Stretch="None" Source="../Resources/Images/Clear.png" ToolTip="清除格式"/>
+            <Button Name="ClearText" Margin="4,0" Click="ClearText_Click">
+                <Image Stretch="None" Source="../Resources/Images/Clear.png" ToolTip="清除内容"/>
             </Button>
             <Separator Margin="4,0"/>
             <ComboBox Name="None" Margin="4,0" Width="35">

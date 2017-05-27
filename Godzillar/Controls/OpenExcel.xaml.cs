@@ -1,6 +1,7 @@
 ﻿using Godzillar.DAO.eyt_xt_order;
 using Godzillar.Service;
 using Godzillar.Service.GenerateExcel;
+using Godzillar.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,14 +67,35 @@ namespace Godzillar.Excel
         {
             string result = excelService.CreateOrder(axGrid);
             if (result == "success")
+            {
                 MessageBox.Show("创建成功", "你真棒");
-            else
+                excelService.Excel_Loading(axGrid);
+
+            }
+            else if (result == "请先输入订单号")
+            {
                 MessageBox.Show(result, "要努力哦");
+            }
+            else
+            {
+                MessageBox.Show(result, "要努力哦");
+                excelService.Excel_Loading(axGrid);
+            }
         }
 
         private void ExcelClose_Click(object sender, RoutedEventArgs e)
         {
             (this.Parent as Grid).Children.Clear();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClearText_Click(object sender, RoutedEventArgs e)
+        {
+            axGrid.Selection.ClearText();
         }
     }
 }

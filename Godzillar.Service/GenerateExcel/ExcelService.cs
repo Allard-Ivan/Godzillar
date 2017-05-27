@@ -81,12 +81,11 @@ namespace Godzillar.Service.GenerateExcel
                 order.InsertTabOrder(orderId, transportId, isOrder);
                 task.InsertTabTask(taskId, orderId);
 
-                for (int j = 0; j < Constants.ExcelCols; j++)
+                for (int j = 0; j < Constants.ItemList.Count; j++)
                 {
                     task_form_value.InsertExcelValue(taskId, Constants.ItemList[j], axGrid.Cell(i, j + 3).Text);
                 }
             }
-
             return "success";
         }
     }
