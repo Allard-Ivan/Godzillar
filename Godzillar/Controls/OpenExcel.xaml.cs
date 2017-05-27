@@ -49,6 +49,7 @@ namespace Godzillar.Excel
             axGrid.Rows = 181;
             axGrid.Cols = 51;
             axGrid.DisplayRowIndex = true;
+            axGrid.GridColor = System.Drawing.Color.Black;
             excelService.Excel_Loading(axGrid);
             dispatcherTime.Start();
         }
@@ -89,7 +90,7 @@ namespace Godzillar.Excel
         }
 
         /// <summary>
-        /// 
+        /// 清除内容按钮 - 点击事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
