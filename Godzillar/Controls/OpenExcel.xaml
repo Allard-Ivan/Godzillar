@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Godzillar.Excel.OpenExcel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Godzillar.Excel"
+             mc:Ignorable="d" 
+             d:DesignHeight="10800" d:DesignWidth="1920" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBar Grid.Row="0">
+            <Button Name="ClearText" Margin="4,0" Click="ClearText_Click">
+                <Image Stretch="None" Source="../Resources/Images/Clear.png" ToolTip="清除内容"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <ComboBox Name="None" Margin="4,0" Width="35">
+
+            </ComboBox>
+            <Button Name="FontBold" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Bold.png" ToolTip="粗体"/>
+            </Button>
+            <Button Name="FontItalic" Margin="4,0">
+                <Image Stretch="None"  Source="../Resources/Images/Italic.png" ToolTip="斜体"/>
+            </Button>
+            <Button Name="FontUnderline" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Underline.png" ToolTip="下划线"/>
+            </Button>
+            <Button Name="FontHorizontalLine" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/HorizontalLine.png" ToolTip="中划线"/>
+            </Button>
+            <Button Name="FontColor" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/FontColor.png" ToolTip="文字颜色"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="BackgroundColor" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/BackgroundColor.png" ToolTip="背景颜色"/>
+            </Button>
+            <Button Name="MergeCell" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Merge.png" ToolTip="合并单元格"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="CellHorizontalAlignment" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/HorizontalAlignment.png" ToolTip="水平对齐"/>
+            </Button>
+            <Button Name="CellVerticalAlignment" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/VerticalAlignment.png" ToolTip="垂直对齐"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="Freeze" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Freeze.png" ToolTip="冻结"/>
+            </Button>
+            <Button Name="CellSort" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/Sort.png" ToolTip="排序"/>
+            </Button>
+            <Separator Margin="4,0"/>
+            <Button Name="CreateOrder" Margin="4,0" Click="CreateOrder_Click">
+                <Image Stretch="None" Source="../Resources/Images/CreateOrder.png" ToolTip="创建订单"/>
+            </Button>
+            <Button Name="FindReplace" Margin="4,0">
+                <Image Stretch="None" Source="../Resources/Images/FindReplace.png" ToolTip="查找与替换"/>
+            </Button>
+            <Button Name="ExcelClose" Margin="4,0" Click="ExcelClose_Click">
+                <Image Stretch="None" Source="../Resources/Images/Close.png" ToolTip="关闭"/>
+            </Button>
+        </ToolBar>
+        <Grid Grid.Row="1" Name="MainGrid"/>
+    </Grid>
+</UserControl>
