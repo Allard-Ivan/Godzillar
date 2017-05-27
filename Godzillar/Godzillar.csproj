@@ -73,11 +73,13 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxFlexCell">
-      <HintPath>..\packages\lib\AxFlexCell.dll</HintPath>
+    <Reference Include="AxFlexCell, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\AxFlexCell.dll</HintPath>
     </Reference>
-    <Reference Include="FlexCell">
-      <HintPath>..\packages\lib\FlexCell.dll</HintPath>
+    <Reference Include="FlexCell, Version=4.3.9.0, Culture=neutral, PublicKeyToken=6f86587eb70ee309, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\FlexCell.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
