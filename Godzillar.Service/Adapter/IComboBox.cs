@@ -7,8 +7,8 @@ using System.Windows.Controls;
 
 namespace Godzillar.Service.Adapter
 {
-    interface IComboBox
+    public interface IComboBox
     {
-        void SetAdapter(ComboBox cbo);
+        void SetAdapter(ComboBox cbo, List<string> list);
     }
 }

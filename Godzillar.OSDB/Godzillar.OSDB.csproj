@@ -52,6 +52,7 @@
     <Compile Include="eyt_xt_order\Tab_task_confirm.cs" />
     <Compile Include="eyt_xt_order\Tab_task_form_value.cs" />
     <Compile Include="eyt_xt_order\Tab_windows_version.cs" />
+    <Compile Include="Modles\GenericControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

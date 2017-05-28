@@ -107,11 +107,17 @@ namespace Godzillar.Excel
         /// <param name="e"></param>
         private void CellWidth_Click(object sender, RoutedEventArgs e)
         {
-            CellWidthDialog cellWidthDialog = new CellWidthDialog();
+            List<string> itemCNList = new List<string>();
+            for (int i = 3; i < Constants.ExcelCols; i++)
+            {
+                itemCNList.Add(axGrid.Cell(0, i).Text);
+            }
+            CellWidthDialog cellWidthDialog = new CellWidthDialog(itemCNList);
             bool dialogResult = Convert.ToBoolean(cellWidthDialog.ShowDialog());
             if (dialogResult)
             {
-
+                string[] value = Convert.ToString(cellWidthDialog.Tag).Split(',');
+                axGrid.Column(Convert.ToInt32(value[0]) + 3).Width = Convert.ToInt32(value[1]);
             }
         }
     }

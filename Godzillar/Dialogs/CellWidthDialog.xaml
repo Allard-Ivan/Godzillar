@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="0" Grid.Column="0" Name="ColomnName" Width="150" Margin="4, 10"/>
+        <ComboBox Grid.Row="0" Grid.Column="0" Name="ColumnName" Width="150" Margin="4, 10"/>
         <TextBox Grid.Row="0" Grid.Column="1" Name="WidthValue" Height="21" Margin="4, 10"/>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="4">
             <Button Margin="0" Name="Determine" Click="Determine_Click">确定</Button>

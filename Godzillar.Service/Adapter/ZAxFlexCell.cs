@@ -19,7 +19,7 @@ namespace Godzillar.Service.Adapter
             axGrid.CellChange -= AxGrid_CellChange;
             Constants.ItemList.Clear();
             axGrid.Column(1).Width = 100;
-            axGrid.Column(2).Width = 170;
+            axGrid.Column(2).Width = 135;
             axGrid.Cell(0, 1).Text = "订单 ID";
             axGrid.Cell(0, 2).Text = "创建时间";
             for (int i = 0; i < dtbl.Rows.Count; i++)
