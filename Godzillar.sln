@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar", "Godzillar\Godz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.Utils", "Godzillar.Utils\Godzillar.Utils.csproj", "{3D1129BD-9CFC-4904-A741-C79864C1FAE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.DAO", "Godzillar.DAO\Godzillar.DAO.csproj", "{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.OSDB", "Godzillar.OSDB\Godzillar.OSDB.csproj", "{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Godzillar.Service", "Godzillar.Service\Godzillar.Service.csproj", "{ABDB7970-053B-4597-BA74-E794F759D584}"
 EndProject

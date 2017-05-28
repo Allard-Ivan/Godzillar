@@ -1,4 +1,5 @@
 ﻿using Godzillar.DAO.eyt_xt_order;
+using Godzillar.Dialogs;
 using Godzillar.Service;
 using Godzillar.Service.GenerateExcel;
 using Godzillar.Utils;
@@ -97,6 +98,21 @@ namespace Godzillar.Excel
         private void ClearText_Click(object sender, RoutedEventArgs e)
         {
             axGrid.Selection.ClearText();
+        }
+
+        /// <summary>
+        /// 列宽按钮 - 点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CellWidth_Click(object sender, RoutedEventArgs e)
+        {
+            CellWidthDialog cellWidthDialog = new CellWidthDialog();
+            bool dialogResult = Convert.ToBoolean(cellWidthDialog.ShowDialog());
+            if (dialogResult)
+            {
+
+            }
         }
     }
 }

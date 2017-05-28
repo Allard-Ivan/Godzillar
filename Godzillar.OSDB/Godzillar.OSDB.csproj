@@ -7,8 +7,8 @@
     <ProjectGuid>{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Godzillar.DAO</RootNamespace>
-    <AssemblyName>Godzillar.DAO</AssemblyName>
+    <RootNamespace>Godzillar.OSDB</RootNamespace>
+    <AssemblyName>Godzillar.OSDB</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

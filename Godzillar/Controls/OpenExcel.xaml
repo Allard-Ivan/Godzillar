@@ -48,6 +48,9 @@
             <Button Name="CellVerticalAlignment" Margin="4,0">
                 <Image Stretch="None" Source="../Resources/Images/VerticalAlignment.png" ToolTip="垂直对齐"/>
             </Button>
+            <Button Name="CellWidth" Margin="4,0" Click="CellWidth_Click">
+                <Image Stretch="None" Source="../Resources/Images/Width.png" ToolTip="列宽"/>
+            </Button>
             <Separator Margin="4,0"/>
             <Button Name="Freeze" Margin="4,0">
                 <Image Stretch="None" Source="../Resources/Images/Freeze.png" ToolTip="冻结"/>

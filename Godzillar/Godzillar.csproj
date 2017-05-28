@@ -109,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dialogs\CellWidthDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +127,9 @@
     </Compile>
     <Compile Include="Controls\OpenExcel.xaml.cs">
       <DependentUpon>OpenExcel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CellWidthDialog.xaml.cs">
+      <DependentUpon>CellWidthDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -163,11 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico" />
+    <Resource Include="Resources\Images\width.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Godzillar.DAO\Godzillar.DAO.csproj">
+    <ProjectReference Include="..\Godzillar.OSDB\Godzillar.OSDB.csproj">
       <Project>{BD0D8CAF-E047-4AF9-B8E9-A3BE293F76A6}</Project>
-      <Name>Godzillar.DAO</Name>
+      <Name>Godzillar.OSDB</Name>
     </ProjectReference>
     <ProjectReference Include="..\Godzillar.Service\Godzillar.Service.csproj">
       <Project>{ABDB7970-053B-4597-BA74-E794F759D584}</Project>

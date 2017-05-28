@@ -15,7 +15,7 @@ namespace Godzillar.Service.GenerateExcel
 {
     public class ExcelService : IExcelService
     {
-        private IAdapter adapter = new IAxFlexCell();
+        private IAxFlexCell adapter = new Adapter.ZAxFlexCell();
 
         private Tab_dic_transport_type dic_transport_type = new Tab_dic_transport_type();
         private Tab_windows_version windows_version = new Tab_windows_version();
