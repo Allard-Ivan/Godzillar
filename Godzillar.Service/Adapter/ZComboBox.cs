@@ -19,7 +19,6 @@ namespace Godzillar.Service.Adapter
             {
                 cbo.Items.Add(new GenericControl(i.ToString(), list[i]));
             }
-            cbo.DisplayMemberPath = "Content";
             cbo.SelectedIndex = 0;
         }
     }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Godzillar.Excel"
              mc:Ignorable="d" 
-             d:DesignHeight="10800" d:DesignWidth="1920" Loaded="UserControl_Loaded">
+             d:DesignHeight="1080" d:DesignWidth="1920" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="28"/>
@@ -58,6 +58,17 @@
             <Button Name="CellSort" Margin="4,0">
                 <Image Stretch="None" Source="../Resources/Images/Sort.png" ToolTip="排序"/>
             </Button>
+            <ComboBox Name="FilterBorder" Width="32" SelectionChanged="FilterBorder_SelectionChanged">
+                <ComboBoxItem IsSelected="True">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Resources/Images/Filter.png"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem Content="新建筛选" Margin="4">
+                </ComboBoxItem>
+                <ComboBoxItem Content="删除筛选" Margin="4">
+                </ComboBoxItem>
+            </ComboBox>
             <Separator Margin="4,0"/>
             <Button Name="CreateOrder" Margin="4,0" Click="CreateOrder_Click">
                 <Image Stretch="None" Source="../Resources/Images/CreateOrder.png" ToolTip="创建订单"/>

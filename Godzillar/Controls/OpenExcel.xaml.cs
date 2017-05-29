@@ -120,5 +120,27 @@ namespace Godzillar.Excel
                 axGrid.Column(Convert.ToInt32(value[0]) + 3).Width = Convert.ToInt32(value[1]);
             }
         }
+
+        private void FilterBorder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string content = Convert.ToString(((ComboBoxItem)FilterBorder.SelectedItem).Content);
+            switch (content)
+            {
+                case "新建筛选":
+                    new CellWidthDialog(new List<string>()).ShowDialog();
+                    FilterBorder.SelectedIndex = 0;
+                    break;
+                case "删除筛选":
+                    FilterBorder.SelectedIndex = 0;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ComboBoxItem_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("foo");
+        }
     }
 }
