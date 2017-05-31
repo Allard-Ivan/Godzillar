@@ -45,5 +45,7 @@ namespace Godzillar.Utils
             TimeSpan timeSpan = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return Convert.ToInt64(timeSpan.TotalSeconds).ToString();
         }
+
+        public const int GridRowHeight = 25;
     }
 }

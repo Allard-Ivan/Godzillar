@@ -53,10 +53,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\IListBox.cs" />
     <Compile Include="Adapter\ZAxFlexCell.cs" />
     <Compile Include="Adapter\ZComboBox.cs" />
     <Compile Include="Adapter\IAxFlexCell.cs" />
     <Compile Include="Adapter\IComboBox.cs" />
+    <Compile Include="Adapter\ZListBox.cs" />
     <Compile Include="GenerateExcel\ExcelService.cs" />
     <Compile Include="GenerateExcel\IExcelService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

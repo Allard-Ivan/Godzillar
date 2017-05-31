@@ -15,5 +15,9 @@ namespace Godzillar.Service.GenerateExcel
         void TimelySave();
 
         string CreateOrder(AxGrid axGrid);
+
+        void FilterGrid(AxGrid axGrid, List<string> filterList, int selectedCol);
+
+        void RecoverGrid(AxGrid axGrid);
     }
 }

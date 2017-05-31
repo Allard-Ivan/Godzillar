@@ -18,7 +18,7 @@
         <ComboBox Grid.Row="0" Grid.Column="0" Name="ColumnName" Width="150" Margin="4, 10" DisplayMemberPath="Content"/>
         <TextBox Grid.Row="0" Grid.Column="1" Name="WidthValue" Height="21" Margin="4, 10"/>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="4">
-            <Button Margin="0" Name="Determine" Click="Determine_Click">确定</Button>
+            <Button Margin="0" Name="Determine" Click="Determine_Click"  Foreground="#FF575757" Background="#FFFBF8F8">确定</Button>
         </StackPanel>
     </Grid>
 </Window>

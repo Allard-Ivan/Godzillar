@@ -11,7 +11,7 @@
             <RowDefinition Height="28"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ToolBar Grid.Row="0">
+        <ToolBar Grid.Row="0" Name="ToolBarFoo">
             <Button Name="ClearText" Margin="4,0" Click="ClearText_Click">
                 <Image Stretch="None" Source="../Resources/Images/Clear.png" ToolTip="清除内容"/>
             </Button>

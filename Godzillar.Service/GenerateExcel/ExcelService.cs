@@ -15,7 +15,7 @@ namespace Godzillar.Service.GenerateExcel
 {
     public class ExcelService : IExcelService
     {
-        private IAxFlexCell adapter = new Adapter.ZAxFlexCell();
+        private IAxFlexCell _adapter = new ZAxFlexCell();
 
         private Tab_dic_transport_type dic_transport_type = new Tab_dic_transport_type();
         private Tab_windows_version windows_version = new Tab_windows_version();
@@ -41,10 +41,10 @@ namespace Godzillar.Service.GenerateExcel
             if (dtblItem.Rows.Count == 0)
                 return;
 
-            adapter.SetAdapter_Title(axGrid, dtblItem);
+            _adapter.SetAdapter_Title(axGrid, dtblItem);
 
             DataTable dtblExcelValue = await SampleMethodTaskAsync();
-            adapter.SetAdapter_Value(axGrid, dtblExcelValue);
+            _adapter.SetAdapter_Value(axGrid, dtblExcelValue);
         }
 
         public void TimelySave()
@@ -87,6 +87,25 @@ namespace Godzillar.Service.GenerateExcel
                 }
             }
             return "success";
+        }
+
+        public void FilterGrid(AxGird axGrid, List<string> filterList, int selectedCol)
+        {
+            for (int i = 1; i < Constants.ExcelRows; i++)
+            {
+                if (!filterList.Contains(axGrid.Cell(i, selectedCol).Text))
+                {
+                    axGrid.set_RowHeight(i, 0);
+                }
+            }
+        }
+
+        public void RecoverGrid(AxGird axGrid)
+        {
+            for (int i = 1; i < Constants.ExcelRows; i++)
+            {
+                axGrid.set_RowHeight(i, Constants.GridRowHeight);
+            }
         }
     }
 }

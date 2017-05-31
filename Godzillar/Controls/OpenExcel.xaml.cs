@@ -28,7 +28,7 @@ namespace Godzillar.Excel
     public partial class OpenExcel : UserControl
     {
         private AxGrid axGrid = new AxGrid();
-        private IExcelService excelService = new ExcelService();
+        private IExcelService _excelService = new ExcelService();
         private DispatcherTimer dispatcherTime;
 
         public OpenExcel()
@@ -42,7 +42,7 @@ namespace Godzillar.Excel
 
         private void DispatcherTime_Tick(object sender, EventArgs e)
         {
-            excelService.TimelySave();
+            _excelService.TimelySave();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -51,7 +51,8 @@ namespace Godzillar.Excel
             axGrid.Cols = 51;
             axGrid.DisplayRowIndex = true;
             axGrid.GridColor = System.Drawing.Color.Black;
-            excelService.Excel_Loading(axGrid);
+            axGrid.DefaultRowHeight = Constants.GridRowHeight;
+            _excelService.Excel_Loading(axGrid);
             dispatcherTime.Start();
         }
 
@@ -67,11 +68,11 @@ namespace Godzillar.Excel
 
         private void CreateOrder_Click(object sender, RoutedEventArgs e)
         {
-            string result = excelService.CreateOrder(axGrid);
+            string result = _excelService.CreateOrder(axGrid);
             if (result == "success")
             {
                 MessageBox.Show("创建成功", "你真棒");
-                excelService.Excel_Loading(axGrid);
+                _excelService.Excel_Loading(axGrid);
 
             }
             else if (result == "请先输入订单号")
@@ -81,7 +82,7 @@ namespace Godzillar.Excel
             else
             {
                 MessageBox.Show(result, "要努力哦");
-                excelService.Excel_Loading(axGrid);
+                _excelService.Excel_Loading(axGrid);
             }
         }
 
@@ -127,20 +128,35 @@ namespace Godzillar.Excel
             switch (content)
             {
                 case "新建筛选":
-                    new CellWidthDialog(new List<string>()).ShowDialog();
                     FilterBorder.SelectedIndex = 0;
+                    int selectedCol = axGrid.Selection.FirstCol;
+                    if (selectedCol == -1 || selectedCol > Constants.ExcelCols)
+                        return;
+
+                    List<string> list = new List<string>();
+                    string item = "";
+                    for (int i = 1; i <= Constants.ExcelRows; i++)
+                    {
+                        item = axGrid.Cell(i, selectedCol).Text;
+                        if (!list.Contains(item) && item != "")
+                            list.Add(item);
+                    }
+                    FilterDialog filterDialog =  new FilterDialog(list);
+                    if (Convert.ToBoolean(filterDialog.ShowDialog()))
+                    {
+                        List<string> filterList = (List<string>)filterDialog.Tag;
+                        _excelService.FilterGrid(axGrid, filterList, selectedCol);
+                    }
                     break;
                 case "删除筛选":
                     FilterBorder.SelectedIndex = 0;
+                    _excelService.RecoverGrid(axGrid);
+                    ToolBarFoo.Focus();
                     break;
                 default:
                     break;
             }
         }
 
-        private void ComboBoxItem_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("foo");
-        }
     }
 }

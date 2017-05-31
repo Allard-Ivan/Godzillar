@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="用户名：" VerticalAlignment="Center" Margin="10,5,5,10"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="密码：" VerticalAlignment="Center" Margin="10,10,5,10"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Name="Username" Text="656525843@qq.com" VerticalAlignment="Center" Margin="10,5,10,10" TabIndex="0"/>
-        <PasswordBox Grid.Row="1" Grid.Column="1" Name="Password" Password="123456" VerticalAlignment="Center" Margin="10" TabIndex="1"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="Username" Text="" VerticalAlignment="Center" Margin="10,5,10,10" TabIndex="0"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Name="Password" Password="" VerticalAlignment="Center" Margin="10" TabIndex="1"/>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
             <Button Name="Determine" Margin="2,0,11,0" Width="45" TabIndex="2" Click="Determine_Click" IsDefault="True">确定</Button>
             <Button Name="Cancel" Margin="11,0,0,0" Width="45"  TabIndex="3" Click="Cancel_Click">取消</Button>

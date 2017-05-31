@@ -27,7 +27,6 @@ namespace Godzillar.Dialogs
         private readonly List<string> itemCNList;
 
         private IComboBox _iCombobox = new ZComboBox();
-
         private Tab_form_item _form_item = new Tab_form_item();
 
         public CellWidthDialog(List<string> itemCNList)
