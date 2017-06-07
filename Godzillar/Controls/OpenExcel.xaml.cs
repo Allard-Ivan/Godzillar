@@ -130,7 +130,7 @@ namespace Godzillar.Excel
                 case "新建筛选":
                     FilterBorder.SelectedIndex = 0;
                     int selectedCol = axGrid.Selection.FirstCol;
-                    if (selectedCol == -1 || selectedCol > Constants.ExcelCols)
+                    if (selectedCol == -1 || selectedCol == 0 || selectedCol > Constants.ExcelCols)
                         return;
 
                     List<string> list = new List<string>();
